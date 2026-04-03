@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dkem2otq1xyju"]
+
+[ext_resource type="Script" uid="uid://crh2lhmr3qmxv" path="res://scenes/exit_door.gd" id="1_i1lea"]
+[ext_resource type="PackedScene" uid="uid://birq4jgprwxuj" path="res://assets/kenney_furniture-kit/Models/GLTF format/doorway.glb" id="1_spv3s"]
+[ext_resource type="PackedScene" uid="uid://b46xc7b20ias6" path="res://assets/kenney_furniture-kit/Models/GLTF format/doorwayOpen.glb" id="2_i1lea"]
+[ext_resource type="Script" uid="uid://dp2g4kp634f1p" path="res://scenes/door_collider.gd" id="3_0gig8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0gig8"]
+size = Vector3(0.49731445, 1.0152588, 0.09881592)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_427ts"]
+size = Vector3(0.4761963, 1.0092087, 0.061157227)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1lea"]
+emission_enabled = true
+emission_energy_multiplier = 3.81
+
+[sub_resource type="BoxMesh" id="BoxMesh_i1lea"]
+material = SubResource("StandardMaterial3D_i1lea")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i1lea"]
+lifetime_randomness = 0.55
+emission_shape = 3
+emission_box_extents = Vector3(1, 1.5, 0.5)
+gravity = Vector3(0, 5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gig8"]
+albedo_color = Color(1, 0.84313726, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 2.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_427ts"]
+material = SubResource("StandardMaterial3D_0gig8")
+size = Vector2(0.3, 0.3)
+
+[node name="ExitDoor" type="Node3D" unique_id=2074446685 groups=["Doors"]]
+script = ExtResource("1_i1lea")
+
+[node name="doorway" parent="." unique_id=354581995 instance=ExtResource("1_spv3s")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="doorway" unique_id=2081939479]
+script = ExtResource("3_0gig8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="doorway/StaticBody3D" unique_id=1549837946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2420044, 0.50476074, -0.047278404)
+shape = SubResource("BoxShape3D_0gig8")
+
+[node name="doorwayOpen" parent="." unique_id=670555158 instance=ExtResource("2_i1lea")]
+visible = false
+
+[node name="ExitZone" type="Area3D" parent="doorwayOpen" unique_id=810344606 groups=["Doors"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="doorwayOpen/ExitZone" unique_id=1730710172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24053955, 0.5098839, -0.043640137)
+shape = SubResource("BoxShape3D_427ts")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="PortalMesh" type="MeshInstance3D" parent="doorwayOpen/ExitZone" unique_id=146927311]
+transform = Transform3D(0.42053083, 0, 0, 0, 0.97511727, 0, 0, 0, 0.109717116, 0.24616241, 0.4982834, -0.044879913)
+mesh = SubResource("BoxMesh_i1lea")
+skeleton = NodePath("../../..")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1198848343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22125244, 0.47753906, 0)
+process_material = SubResource("ParticleProcessMaterial_i1lea")
+draw_pass_1 = SubResource("QuadMesh_427ts")
+
+[connection signal="body_entered" from="doorwayOpen/ExitZone" to="." method="_on_exit_zone_body_entered"]

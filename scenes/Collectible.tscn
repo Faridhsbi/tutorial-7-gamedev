@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://6jxlpv0due4d"]
+
+[ext_resource type="Script" uid="uid://cs7jdsiv7hmay" path="res://scenes/Collectible.gd" id="1_46ifn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oa0ka"]
+albedo_color = Color(0.5893968, 0.7854941, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_46ifn"]
+material = SubResource("StandardMaterial3D_oa0ka")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_om321"]
+radius = 1.0196725
+
+[sub_resource type="Animation" id="Animation_2tekd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4focq"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5707964, 6.2831855, 0), Vector3(3.1415927, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djtx5"]
+_data = {
+&"RESET": SubResource("Animation_2tekd"),
+&"idle": SubResource("Animation_4focq")
+}
+
+[node name="Collectible" type="Area3D" unique_id=599877787]
+script = ExtResource("1_46ifn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=839766259]
+mesh = SubResource("TorusMesh_46ifn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=896520266]
+shape = SubResource("SphereShape3D_om321")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=589725033]
+libraries/ = SubResource("AnimationLibrary_djtx5")
+autoplay = &"idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://kfwi3ifcup1c"]
+
+[ext_resource type="Script" uid="uid://bphpfgpvq6v8l" path="res://scenes/win_screen.gd" id="1_okh34"]
+[ext_resource type="Texture2D" uid="uid://cxkmwk6kovf3" path="res://assets/Keanu.png" id="1_ulig0"]
+
+[node name="WinScreen" type="Control" unique_id=891192121]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_okh34")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=983318248]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6509804)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1306378156]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_ulig0")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=512336638]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -25.0
+offset_right = 40.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 9
+
+[node name="LinkButton" type="Button" parent="VBoxContainer" unique_id=1660268677]
+modulate = Color(0.5137255, 1, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Play Again"
+alignment = 0
+autowrap_trim_flags = 192
+
+[node name="LinkButton2" type="Button" parent="VBoxContainer" unique_id=314161826]
+modulate = Color(1, 0.1764706, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/LinkButton" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/LinkButton2" to="." method="_on_quit_pressed"]

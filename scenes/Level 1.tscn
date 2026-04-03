@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://3bj4q2hq3e2l"]
+
+[ext_resource type="PackedScene" uid="uid://dltqory4o1xju" path="res://scenes/World 1.tscn" id="1_vv25x"]
+[ext_resource type="PackedScene" uid="uid://bjvvc4yryfqdq" path="res://scenes/Player.tscn" id="2_ymo8b"]
+[ext_resource type="PackedScene" uid="uid://ck3bpa6x2h5pc" path="res://scenes/AreaTrigger.tscn" id="3_gpsl1"]
+[ext_resource type="PackedScene" uid="uid://dkem2otq1xyju" path="res://scenes/ExitDoor.tscn" id="4_kbmnf"]
+
+[node name="Level1" type="Node3D" unique_id=1249500147]
+
+[node name="World 1" parent="." unique_id=449294620 instance=ExtResource("1_vv25x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004638672, 0.026550293, -0.005004883)
+
+[node name="Player" parent="." unique_id=421167640 instance=ExtResource("2_ymo8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.1398287, 0)
+
+[node name="AreaTrigger" parent="." unique_id=1458299473 instance=ExtResource("3_gpsl1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.092747, -9.931635, -79.76317)
+visible = false
+sceneName = "Win Screen"
+
+[node name="Jurang" parent="." unique_id=1235495701 instance=ExtResource("3_gpsl1")]
+transform = Transform3D(1, 8.351871e-23, -3.6507187e-30, 0, -4.371139e-08, -1, -8.351871e-23, 1, -4.371139e-08, 0, -26.947605, -16.028927)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=376489538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.4585905, -4.835334)
+light_energy = 3.316
+light_indirect_energy = 1.09
+light_volumetric_fog_energy = 2.895
+omni_range = 50.0
+
+[node name="ExitDoor" parent="." unique_id=2074446685 instance=ExtResource("4_kbmnf")]
+transform = Transform3D(0.052359123, 0, -4.999726, 0, 5, 0, 4.999726, 0, 0.052359123, 24.292845, -9.525085, -76.71578)
+sceneName = "Level 2"

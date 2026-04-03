@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c22r5cwvn28dv"]
+
+[ext_resource type="Script" uid="uid://b6qcpormht4o3" path="res://scenes/color_block.gd" id="1_ybog6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lr7qb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ybog6"]
+
+[node name="ColorBlock" type="StaticBody3D" unique_id=448655977]
+script = ExtResource("1_ybog6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1964376685]
+mesh = SubResource("BoxMesh_lr7qb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1195638016]
+shape = SubResource("BoxShape3D_ybog6")

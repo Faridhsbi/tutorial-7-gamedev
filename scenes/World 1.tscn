@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://dltqory4o1xju"]
+
+[ext_resource type="PackedScene" uid="uid://doltqdncnrcbx" path="res://scenes/ObjLamp.tscn" id="1_cb4d4"]
+[ext_resource type="PackedScene" uid="uid://6jxlpv0due4d" path="res://scenes/Collectible.tscn" id="2_8x8vc"]
+
+[node name="World 1" type="Node3D" unique_id=449294620]
+
+[node name="ObjLamp" parent="." unique_id=703693938 instance=ExtResource("1_cb4d4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.8718262, -9.081619, -77.68048)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1319921910]
+use_collision = true
+
+[node name="Room 1" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1496715303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.618156, 0)
+use_collision = true
+flip_faces = true
+size = Vector3(15, 10, 55)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1657597581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.7449036, -51.87036)
+flip_faces = true
+size = Vector3(50, 10, 55)
+
+[node name="Jurang" type="CSGBox3D" parent="CSGCombiner3D" unique_id=302219375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00024414063, -16.896393, -16.971575)
+flip_faces = true
+size = Vector3(15, 15, 15)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=548377363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.098328, -4.74292, -41.90088)
+operation = 2
+flip_faces = true
+size = Vector3(30, 10, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=198051907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.05249, -4.74292, -41.3927)
+operation = 2
+flip_faces = true
+size = Vector3(20, 10, 10)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=403365300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.023438, -4.74292, -57.645996)
+operation = 2
+flip_faces = true
+size = Vector3(20, 10, 10)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2122657997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.306763, -4.74, -61.882763)
+operation = 2
+flip_faces = true
+size = Vector3(20, 10, 20)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1516456405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50476074, -4.74292, -61.8396)
+operation = 2
+flip_faces = true
+size = Vector3(15, 10, 20)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1446193063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.37146, -4.730591, -75.30847)
+operation = 2
+flip_faces = true
+size = Vector3(15, 10, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1020766528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.918709, -20.417542)
+use_collision = true
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1869144426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.210514, -14.301569)
+use_collision = true
+size = Vector3(2, 2, 5.980957)
+
+[node name="ObjLamp2" parent="." unique_id=870200166 instance=ExtResource("1_cb4d4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -24.282593, -9.263199, -25.508831)
+
+[node name="ObjLamp3" parent="." unique_id=1385347907 instance=ExtResource("1_cb4d4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 23.749329, -9.263199, -25.476929)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=228381854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.594604, 4.484665, -75.69362)
+light_energy = 1.632
+omni_range = 53.702
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1893472906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.893982, 0.46513367, -67.42334)
+light_energy = 1.632
+omni_range = 64.923
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1185296289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.893982, -0.27778053, -22.722412)
+light_energy = 1.632
+omni_range = 37.476
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="." unique_id=2062901805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.175781, 1.3554497, -49.573486)
+light_energy = 1.632
+omni_range = 37.476
+
+[node name="Collectible" parent="." unique_id=599877787 instance=ExtResource("2_8x8vc")]
+transform = Transform3D(-2.1855694e-08, -0.5, 2.1855694e-08, 0, -2.1855694e-08, -0.5, 0.5, -2.1855694e-08, 9.553427e-16, -19.283936, -8.168037, -30.328033)
+
+[node name="Collectible2" parent="." unique_id=1409143934 instance=ExtResource("2_8x8vc")]
+transform = Transform3D(-2.1855694e-08, -0.5, 2.1855694e-08, 0, -2.1855694e-08, -0.5, 0.5, -2.1855694e-08, 9.553427e-16, 24.359497, -8.168037, -30.328033)
+
+[node name="Collectible3" parent="." unique_id=1903731002 instance=ExtResource("2_8x8vc")]
+transform = Transform3D(2.1855698e-08, 3.774895e-08, 0.5, -0.5, 3.774895e-08, 2.1855694e-08, -3.774895e-08, -0.5, 3.774895e-08, -21.481293, -7.7493057, -49.550415)
+
+[node name="Collectible4" parent="." unique_id=1340899910 instance=ExtResource("2_8x8vc")]
+transform = Transform3D(1.0927848e-08, 2.1855694e-08, 0.25, -0.25, 1.0927848e-08, 1.0927846e-08, -1.0927846e-08, -0.25, 2.1855694e-08, -21.338501, -8.218498, -75.54367)
+
+[node name="Collectible5" parent="." unique_id=1559849492 instance=ExtResource("2_8x8vc")]
+transform = Transform3D(1.0927848e-08, 2.1855694e-08, 0.25, -0.25, 1.0927848e-08, 1.0927846e-08, -1.0927846e-08, -0.25, 2.1855694e-08, -0.50042725, -8.218498, -74.80497)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=981875607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.893982, -0.27778053, -22.722412)
+light_energy = 1.632
+omni_range = 37.476
+
+[node name="ObjLamp4" parent="." unique_id=1897398758 instance=ExtResource("1_cb4d4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 23.749329, -9.263199, -49.29785)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1604819969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1776886, -7.040161, -5.715515)
+billboard = 1
+text = "Collect all coins to open the door..."
+font_size = 60
+outline_size = 9

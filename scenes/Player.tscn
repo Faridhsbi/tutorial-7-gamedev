@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://bjvvc4yryfqdq"]
+
+[ext_resource type="Script" uid="uid://h7dkec0fyxm7" path="res://scenes/Player.gd" id="1_p0vlq"]
+[ext_resource type="Script" uid="uid://0k73ffyqy611" path="res://scenes/ray_cast_3d.gd" id="2_v6fml"]
+[ext_resource type="Texture2D" uid="uid://ne21dw0ovve5" path="res://assets/coin.png" id="3_3li8b"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v6fml"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3li8b"]
+
+[node name="Player" type="CharacterBody3D" unique_id=421167640 groups=["Player"]]
+script = ExtResource("1_p0vlq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=20916476]
+cast_shadow = 3
+mesh = SubResource("CapsuleMesh_v6fml")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1852119130]
+shape = SubResource("CapsuleShape3D_3li8b")
+
+[node name="Head" type="Node3D" parent="." unique_id=538562250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0012568, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=255320173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.055728197, 0)
+current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=300352300 node_paths=PackedStringArray("crosshair")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025458813, 0)
+target_position = Vector3(0, 0, -2)
+script = ExtResource("2_v6fml")
+crosshair = NodePath("../../../HUD/CenterContainer/Crosshair")
+
+[node name="CeilingCheck" type="RayCast3D" parent="." unique_id=1895394656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9067122, 0)
+target_position = Vector3(0, 1.25, 0)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=378917277]
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD" unique_id=717051464]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="ColorRect" parent="HUD/CenterContainer" unique_id=1363868295]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=542669053]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer" unique_id=355205538]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="CoinIcon" type="TextureRect" parent="HUD/MarginContainer/HBoxContainer" unique_id=1049502677]
+layout_mode = 2
+texture = ExtResource("3_3li8b")
+expand_mode = 2
+
+[node name="CoinLabel" type="Label" parent="HUD/MarginContainer/HBoxContainer" unique_id=1290570747]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "0 / 5"
+
+[node name="InteractionLabel" type="Label" parent="HUD" unique_id=345180380]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockedLabel" type="Label" parent="HUD" unique_id=302490550]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD" unique_id=2000432291]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Inventory" type="HBoxContainer" parent="HUD/MarginContainer2" unique_id=447845361]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HUD/MarginContainer2/Inventory" unique_id=1713384694]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.5058824, 0.5058824, 0.5058824, 0.12156863)
+
+[node name="ColorRect2" type="ColorRect" parent="HUD/MarginContainer2/Inventory" unique_id=1385543921]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.5058824, 0.5058824, 0.5058824, 0.12156863)
+
+[node name="ColorRect3" type="ColorRect" parent="HUD/MarginContainer2/Inventory" unique_id=419571184]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.5058824, 0.5058824, 0.5058824, 0.12156863)
+
+[node name="ColorRect4" type="ColorRect" parent="HUD/MarginContainer2/Inventory" unique_id=764848508]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.5058824, 0.5058824, 0.5058824, 0.12156863)
+
+[node name="ColorRect5" type="ColorRect" parent="HUD/MarginContainer2/Inventory" unique_id=603906672]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.5058824, 0.5058824, 0.5058824, 0.12156863)

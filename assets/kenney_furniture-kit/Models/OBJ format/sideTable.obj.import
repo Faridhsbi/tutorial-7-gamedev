@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c4s3vwsc4h235"
+path="res://.godot/imported/sideTable.obj-54b8252bafe3cfdf78a6a1293eb68269.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sideTable.obj-54b8252bafe3cfdf78a6a1293eb68269.mesh"]
+
+source_file="res://assets/kenney_furniture-kit/Models/OBJ format/sideTable.obj"
+dest_files=["res://.godot/imported/sideTable.obj-54b8252bafe3cfdf78a6a1293eb68269.mesh", "res://.godot/imported/sideTable.obj-54b8252bafe3cfdf78a6a1293eb68269.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
